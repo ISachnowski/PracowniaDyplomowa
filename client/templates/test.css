@@ -1,0 +1,75 @@
+/* CSS declarations go here */
+html{
+  background: #600000;
+  height:100%;
+  width:100%;
+}
+
+body {
+  height:100%;
+  width:100%;
+  background: #330033;
+  color: white;
+}
+div#container {
+  display:block;
+  overflow: auto
+}
+
+div#sidebar{
+  color:white;
+}
+div#header {
+  background:#400000;
+}
+
+div#bs-example-navbar-collapse-1 {
+  color: white;
+}
+
+.navbar-default {
+  background-color: #000000;
+  border-color: #e20000;
+}
+.navbar-default .navbar-brand {
+  color: #ecf0f1;
+}
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+  color: #ecdbff;
+}
+.navbar-default .navbar-text {
+  color: #ecf0f1;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #ecf0f1;
+}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+  color: #ecdbff;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+  color: #ecdbff;
+  background-color: #e20000;
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+  color: #ecdbff;
+  background-color: #e20000;
+}
+.navbar-default .navbar-toggle {
+  border-color: #e20000;
+}
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+  background-color: #e20000;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #ecf0f1;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  border-color: #ecf0f1;
+}
+.navbar-default .navbar-link {
+  color: #ecf0f1;
+}
+.navbar-default .navbar-link:hover {
+  color: #ecdbff;
+}
