@@ -29,10 +29,8 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="/">Main page</a></li>
-            <li><a href="/sites">Sites</a></li>
-            <li><a href="/categories">Categories</a></li>
-            <li><a href="/preferences">Preferences</a></li>
-            <li><a href="/about">About</a></li>
+            <li><a href="/sites">Add new webpage</a></li>
+            <li><a href="/categories">My categories</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-left">
             <li><h4>{{>loginButtons}}</h4></li>
@@ -55,88 +53,51 @@
 
 
 <template name="sitesPage">
-  <center>
-    <h2>My sites</h2>
-    {{#if isEmpty}}
-    <u><i>You don't have any sites. <br>
-      Add a new site or choose any from available categories.</i></u>
-    {{/if}}
-    <td>
-  {{#each sitesData}}
-    {{>site}}
-  {{/each}}
-  <br><br>
-</td>
+<center>
+  <div style="font-size: 250%;">
 <form>
-Add new site.<br>
-URL: <input type="text" name="url" id="url"/><br>
-Category: <input type="text" name="category" id="category"/><br>
-<input type="submit" id="update" value="Update"/>
+<u>Add new site.</u><br>
+URL: <input type="text" name="url" id="url" style="height: 50px; width: 500px;"/><br>
+<input type="submit" class="btn btn-danger btn-lg" id="update" value="Update" style="color:black;"/>
 </form>
+</div>
 </center>
 </template>
 
 <template name="iframe">
+          {{#if noWebpages}}
+          <center>You have no new webpages.<br></center>
+          {{/if}}
+            <center><button type="button" class="btn btn-danger btn-lg" id="generateWebpages" name="generateWebpages" style="color:black;">Reload!</button>
+              <button type="button" class="btn btn-danger btn-lg" id="nextWebpage" name="nextWebpage" style="color:black;">Next</button></center>
+          {{#if moreWebpages}}
 
+          <center><br>
+          <iframe id="MainIFrame" src="" width="80%" style="height:700px;"></iframe></center>
 
-          <center><iframe src="http://wp.pl" width="80%" style="height:650px;"></iframe></center>
-
-
+          {{/if}}
+          {{#if isModerator}}
+          <form>
+          <center>New category<br>
+          <input type="text" name="newcategory" id="newcategory"/><br>
+          <input type="submit" id="updateCat" value="Update Category" style="color:black;"/> <br></center>
+          </form>
+          {{/if}}
 </template>
-<template name="site">
-  <tr><a href={{url}}><button type="button" class="btn btn-success">{{domain}}</button></a><button type="button" class="btn btn-danger delete"><span class="glyphicon glyphicon-remove-circle"></span></button></tr>
-</template>
-
-<template name="cSite">
-  <tr><a href={{url}}><button type="button" class="btn btn-success">{{domain}}</button></a><button type="button" class="btn btn-danger add"><span class="glyphicon glyphicon-plus-sign"></span></button></tr>
-</template>
-
-
-
 <template name="categories"><center>
-  <h2>Categories</h2>
-  <a href="/categories/politics"><button type="button" class="btn btn-primary btn-lg">Politics</button></a><br><br>
-  <a href="/categories/sport"><button type="button" class="btn btn-primary btn-lg">Sport</button></a><br><br>
-  <a href="/categories/travel"><button type="button" class="btn btn-primary btn-lg">Travel</button></a><br><br>
-  <a href="/categories/business"><button type="button" class="btn btn-primary btn-lg">Business</button></a><br></center>
-</template>
-<template name="politics">
-  <center><h2><b>Politics</b></h2>
-    <td>
-  {{#each politicsSites}}
-    {{>cSite}}
-  {{/each}}
-  <br><br>
-</td>
-  </center>
-</template>
-<template name="sport">
-  <center><h2><b>Sport</b></h2>
-    <td>
-  {{#each sportSites}}
-    {{>cSite}}
-  {{/each}}
-  <br><br>
-</td>
-  </center>
-</template>
-<template name="travel">
-  <center><h2><b>Travel</b></h2>
-    <td>
-  {{#each travelSites}}
-    {{>cSite}}
-  {{/each}}
-  <br><br>
-</td>
-  </center>
-</template>
-<template name="business">
-  <center><h2><b>Business</b></h2>
-    <td>
-  {{#each businessSites}}
-    {{>cSite}}
-  {{/each}}
-  <br><br>
-</td>
-  </center>
+  <div style="width: 10%; font-size: 350%;">
+  <u>Categories</u>
+
+  <form style="text-align: left; font-size: 50%">
+      Choose your categories:<br>
+
+      <input type="checkbox" name="Business" id="Business">Business<br>
+      <input type="checkbox" name="Sport" id="Sport">Sport<br>
+      <input type="checkbox" name="Science" id="Science">Science<br>
+      <input type="checkbox" name="Entertainment" id="Entertainment">Entertainment<br>
+      <input type="checkbox" name="Moto" id="Moto">Moto<br><br>
+      <input type="submit" class="btn btn-danger btn-lg" id="updateCategories" value="Update" style="color:black;"/> <br>
+  </form>
+</div>
+</center>
 </template>
